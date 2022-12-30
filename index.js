@@ -35,7 +35,7 @@ function handleGuess(guess) {
     }
   } else {
     // If the guess is incorrect, display a message
-    alert("Nope, that's not one of the nouns :(");
+    alert("Nope, that's not one of the nouns :( Guess again...");
   }
 }
 
@@ -51,4 +51,4 @@ function promptGuess() {
 }
 
 // Schedule the first guess prompt
-setTimeout(promptGuess, 1000);
+setTimeout(promptGuess, 3000);

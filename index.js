@@ -44,14 +44,15 @@ function handleGuess(guess) {
 function receiveGuess() {
   if (!gameWon) {
 
-    // Handle the player guess from the text box if 'Guess' button is clicked
+    // Handle the player guess from the text box if 'Guess' button is clicked, and clear the text box
     const button= document.getElementById("button");
     button.addEventListener('click', function(){
       var playerGuess = document.getElementById("textbox-guess").value;
+      document.getElementById('textbox-guess').value = '';
       handleGuess(playerGuess);
     });
 
-    //or the enter key pressed while in text box.....
+    // If the enter key is pressed while in the text box, simulate a button click
     $("#textbox-guess").keyup(function(event){
     if(event.keyCode == 13){
         $("#button").click();

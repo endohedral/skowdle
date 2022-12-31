@@ -39,6 +39,35 @@ function handleGuess(guess) {
   }
 }
 
+
+// Set up a function to receive a guess from the text box
+function receiveGuess() {
+  if (!gameWon) {
+
+    // Handle the player guess from the text box if 'Guess' button is clicked
+    const button= document.getElementById("button");
+    button.addEventListener('click', function(){
+      var playerGuess = document.getElementById("textbox-guess").value;
+      handleGuess(playerGuess);
+    });
+
+    //or the enter key pressed while in text box.....
+    $("#textbox-guess").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#button").click();
+    }
+});
+  }
+}
+
+
+receiveGuess();
+
+
+
+
+
+// no longer used, can be removed, good riddance to annoying dialog boxes
 // Set up a function to prompt the player for a guess
 function promptGuess() {
   // If the game has not been won, prompt the player for a guess
@@ -51,4 +80,4 @@ function promptGuess() {
 }
 
 // Schedule the first guess prompt
-setTimeout(promptGuess, 3000);
+//setTimeout(promptGuess, 3000);

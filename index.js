@@ -1,6 +1,9 @@
-// Define the two solution nouns
+// Define the two solution nouns and display the number of characters
 var solutionNoun1 = "appetite";
 var solutionNoun2 = "ghost";
+$("#solution-noun-1").text('?'.repeat(solutionNoun1.length));
+$("#solution-noun-2").text('?'.repeat(solutionNoun2.length));
+
 
 // Set flags to track whether the player has revealed either noun or won the game
 var noun1Revealed = false;
@@ -34,7 +37,7 @@ function handleGuess(guess) {
     if (noun1Revealed && noun2Revealed) {
       // If both nouns have been revealed, the player has won the game
       gameWon = true;
-      alert("Yay, you guessed both nouns :)");
+      $("#game-won").text("Yay, you guessed both nouns, go you");
     }
   }
 }

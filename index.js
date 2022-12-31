@@ -4,7 +4,6 @@ var solutionNoun2 = "ghost";
 $("#solution-noun-1").text('?'.repeat(solutionNoun1.length));
 $("#solution-noun-2").text('?'.repeat(solutionNoun2.length));
 
-
 // Set flags to track whether the player has revealed either noun or won the game
 var noun1Revealed = false;
 var noun2Revealed = false;
@@ -16,11 +15,9 @@ function handleGuess(guess) {
   guess = guess.toLowerCase(); 
   
   // Add the guess to the list of previous guesses
-  // TODO: reverse order!
-  $("#guesses-list").append("<li>" + guess + "</li>");
-
-  // Update the number of guesses
-  $("#guesses-count").text("Number of guesses: " + $("#guesses-list li").length);
+  // TODO: add column for correct/incorrect tick/cross
+  guessCount = $("#guesses-list li").length + 1;
+  $("#guesses-list").prepend("<li>" + guessCount + ". &nbsp;" + guess + "</li>");
 
   // Check if the player's guess matches either of the solution nouns
   if (guess === solutionNoun1 || guess === solutionNoun2) {

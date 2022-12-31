@@ -28,6 +28,7 @@ h4 {
 .right {
       width:47%;
       float:right;
+      list-style-type: none; /* Remove bullets */
 }
 
 .centre {

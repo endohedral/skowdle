@@ -34,7 +34,7 @@ function handleGuess(guess) {
     if (noun1Revealed && noun2Revealed) {
       // If both nouns have been revealed, the player has won the game
       gameWon = true;
-      $("#game-won").text("Yay, you guessed both nouns, go you");
+      $("#game-won").text("Yay, you guessed both nouns. You win a biscuit! (biscuit not provided)");
     }
   }
 }

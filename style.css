@@ -1,8 +1,38 @@
-.everything {
-  margin: 50px;
+.headfoot {
+  margin: 5px;
 }
 
-img {
-  max-width: 30%;
-  height: auto;
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+h4 {
+    font-size: 4em;
+}
+
+
+.container {
+      width:auto;
+      height:auto;
+      margin: 20px;
+}
+.left {
+      width:47%;
+      float:left;
+}
+.right {
+      width:47%;
+      float:right;
+}
+
+.centre {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
 }

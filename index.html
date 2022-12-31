@@ -11,14 +11,29 @@
   </head>
   <body>
     <main>
-    	<div class="everything">
+    	<div class="headfoot">
 	        <h1>skowdle</h1>
-	        <h2>'some kind of wordle'</h2>
-	 		<img src="testimage.png" alt="Guess the two nouns">
-	 		<h3>Guess one of the two nouns used to generate the image!</h3>
-			<h4>Images generated using Midjourney</h4>
+	        <h2>'<u>s</u>ome <u>k</u>ind <u>o</u>f <u>w</u>or<u>dle</u>'</h2>
+	 		<h3>Guess one of the two nouns used to generate the image</h3>
+		</div>
+		<div class="container">
+	    	<div class="left">
+	    		<img src="testimage.png" alt="Guess the two nouns" class="centre">
+			</div>
+	    	<div class="right">
+	    		<h4><b><span id="solution-noun-1"></span> <span id="solution-noun-2"></span></b></h4>
+	    		<p><span id="guesses-count"></span></p>
+	    		<p><span id="guesses-list"></span></p>
+			</div>
 		</div>
     </main>
 	<script src="index.js"></script>
   </body>
 </html>
+
+
+
+<!--guesses-list
+guesses-count
+solution-noun-1
+solution-noun-2-->

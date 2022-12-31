@@ -11,6 +11,7 @@ function handleGuess(guess) {
   guess = guess.toLowerCase(); 
   
   // Add the guess to the list of previous guesses
+  // TODO: reverse order!
   $("#guesses-list").append("<li>" + guess + "</li>");
 
   // Update the number of guesses
@@ -46,7 +47,7 @@ function promptGuess() {
     var playerGuess = prompt("Enter a noun:");
     handleGuess(playerGuess);
     // Schedule the next guess prompt
-    setTimeout(promptGuess, 1000);
+    setTimeout(promptGuess, 500);
   }
 }
 

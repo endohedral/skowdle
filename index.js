@@ -28,29 +28,32 @@ receiveInput();
 
 // A function to receive input from the player
 function receiveInput() {
-  if (!gameWon) {
 
-    // Receive the player guess from the text box if 'Guess' button is clicked, and clear the text box
-    const guessButton= document.getElementById("guess-button");
-    guessButton.addEventListener('click', function(){
+  // Receive the player guess from the text box if 'Guess' button is clicked, and clear the text box
+  const guessButton= document.getElementById("guess-button");
+  guessButton.addEventListener('click', function(){
+    if (!gameWon) {
       var playerGuess = document.getElementById("textbox-guess").value;
       document.getElementById('textbox-guess').value = '';
       handleGuess(playerGuess);
-    });
+    }
+  });
 
-    // If the enter key is pressed while in the text box, simulate a 'Guess' button click
-    $("#textbox-guess").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#guess-button").click();
-      }
-    });
-  
-    // Wait for the 'Hint' button to be clicked
-    const hintButton= document.getElementById("hint-button");
-    hintButton.addEventListener('click', function(){
+  // If the enter key is pressed while in the text box, simulate a 'Guess' button click
+  $("#textbox-guess").keyup(function(event){
+  if(event.keyCode == 13){
+      $("#guess-button").click();
+    }
+  });
+
+  // Wait for the 'Hint' button to be clicked
+  const hintButton= document.getElementById("hint-button");
+  hintButton.addEventListener('click', function(){
+    if (!gameWon) {
       deliverHint();
-    });
-  }
+    }
+  });
+
 }
 
 // A function to handle the player's guess

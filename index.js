@@ -34,8 +34,10 @@ function receiveInput() {
   guessButton.addEventListener('click', function(){
     if (!gameWon) {
       var playerGuess = document.getElementById("textbox-guess").value;
-      document.getElementById('textbox-guess').value = '';
-      handleGuess(playerGuess);
+      if (playerGuess !== '') {
+        document.getElementById('textbox-guess').value = '';
+        handleGuess(playerGuess);
+      }
     }
   });
 

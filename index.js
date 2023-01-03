@@ -98,7 +98,7 @@ if (noun1Revealed && noun2Revealed) {
   gameWon = true;
   $("#game-won").text("Yay, you guessed both nouns. You win a biscuit! (biscuit not provided).");
   $("#game-stats").text("Score for skowdle-" + skowdleDate + ": " + guessCount + " guesses with " + hintCount + " hints.");
-  $("#header").html("Skowdle &nbsp; /skaʊ dl/ &nbsp; <i>noun</i> &nbsp; Steve <u>Skow</u>ron's wor<u>dle</u> game");
+  $("#header").html("Skowdle &nbsp; /skaʊ dl/ &nbsp; <i>noun</i> &nbsp; steve <u>skow</u>ron's wor<u>dle</u> game");
   }
 }
 

@@ -1,4 +1,5 @@
 .headfoot {
+  height:15vh;
   margin: 5px;
 }
 
@@ -18,7 +19,7 @@ h4 {
 
 .container {
       width:auto;
-      height:auto;
+      height:85vh;
       margin: 20px;
 }
 .left {
@@ -36,4 +37,19 @@ h4 {
   margin-left: auto;
   margin-right: auto;
   width: 85%;
+}
+
+/* Click the image for fullscreen */
+#fullpage {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat no-repeat;
+  background-position: center center;
+  background-color: black;
 }

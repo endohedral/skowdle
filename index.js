@@ -1,5 +1,4 @@
 //TODO:
-//click on image to embiggen to full screen/size
 //aspect ratio handling - if wider then left-righty; if taller then uppy-downy
 //refreshes every midnight utc
 //about section - instructions, nouns, midjourney deets, skowdle,bisc, todolist, masto contact deets for bugs etc
@@ -54,7 +53,7 @@ function receiveInput() {
     }
   });
 
-  // Wait for the 'Hint' button to be clicked
+  // Clicking the 'Hint' button reveals a letter
   const hintButton = document.getElementById("hint-button");
   hintButton.addEventListener('click', function(){
     if (!gameWon) {
@@ -62,6 +61,13 @@ function receiveInput() {
     }
   });
 
+  // Clicking on the image toggles full screen display of it
+  const img = document.querySelector('.left img');
+  const fullPage = document.querySelector('#fullpage');
+  img.addEventListener('click', function() {
+    fullPage.style.backgroundImage = 'url(' + img.src + ')';
+    fullPage.style.display = 'block';
+  });
 }
 
 // A function to handle the player's guess
@@ -147,4 +153,3 @@ function pickNoun() {
     return 2;
   }
 }
-

@@ -4,7 +4,7 @@
 //about section - ?
 //appearance: dark mode/light mode, phones, etc - cog
 //share tweet etc on win - picture, number of guesses & hints used
-//track scores in cookie, view averages, add to victory message
+//track scores in cookie, view averages, #played, current streak, best streak, best score (lowest g for lowest h), add to victory message & add stats button
 //visitor numbers?
 //payment (kofi/patreon/paypal)
 
@@ -97,7 +97,8 @@ function checkWin(){
 if (noun1Revealed && noun2Revealed) {
   gameWon = true;
   $("#game-won").text("Yay, you guessed both nouns. You win a biscuit! (biscuit not provided).");
-  $("#game-stats").text("Results for skowdle-" + skowdleDate + ": " + guessCount + " guesses and " + hintCount + " hints.");
+  $("#game-stats").text("Score for skowdle-" + skowdleDate + ": " + guessCount + " guesses with " + hintCount + " hints.");
+  $("#header").html("Skowdle &nbsp; /skaʊ dl/ &nbsp; <i>noun</i> &nbsp; Steve <u>Skow</u>ron's wor<u>dle</u> game");
   }
 }
 

@@ -5,7 +5,8 @@
 //appearance: dark mode/light mode, phones, etc - cog
 //share tweet etc on win - picture, number of guesses & hints used
 //track scores in cookie, view averages, #played, current streak, best streak, best score (lowest g for lowest h), add to victory message & add stats button
-//visitor numbers?
+//'achievements'
+//visitor numbers, analytics
 //payment (kofi/patreon/paypal)
 
 
@@ -14,8 +15,8 @@ var skowdleDate = new Date().toISOString().slice(0, 10);
 
 // Define the two solution nouns and display the number of characters
 // TODO: should be array really, would make things much tidier later
-var solutionNoun1 = "appetite";
-var solutionNoun2 = "ghost";
+var solutionNoun1 = "battery";
+var solutionNoun2 = "riot";
 $("#solution-noun-1").text('?'.repeat(solutionNoun1.length));
 $("#solution-noun-2").text('?'.repeat(solutionNoun2.length));
 
@@ -83,6 +84,7 @@ function handleGuess(guess) {
   
   // Add the guess to the list of previous guesses
   // TODO: add column for correct/incorrect tick/cross
+  // TODO: again, should have done this properly with arrays but it works
   guessCount += 1;
   $("#guesses-list").prepend("<li>" + guessCount + ". &nbsp; " + guess + " </li>");
 

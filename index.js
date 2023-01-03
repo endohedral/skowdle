@@ -1,17 +1,15 @@
 //TODO:
 //aspect ratio handling - if wider then left-righty; if taller then uppy-downy
 //refreshes every midnight utc
-//about section - instructions, nouns, midjourney deets, skowdle,bisc, todolist, masto contact deets for bugs etc
-//appearance: dark mode/light mode, phones, etc
-//share tweet etc - picture, number of guesses & hints used
+//about section - ?
+//appearance: dark mode/light mode, phones, etc - cog
+//share tweet etc on win - picture, number of guesses & hints used
 //track scores in cookie, view averages, add to victory message
 //visitor numbers?
 //payment (kofi/patreon/paypal)
 
 
 // Get date
-//var date = new Date();
-//var skowdleDate = date.getUTCFullYear()+"."+(date.getUTCMonth()+1)+"."+ date.getUTCDate();
 var skowdleDate = new Date().toISOString().slice(0, 10);
 
 // Define the two solution nouns and display the number of characters
@@ -39,7 +37,7 @@ function receiveInput() {
   guessButton.addEventListener('click', function(){
     if (!gameWon) {
       var playerGuess = document.getElementById("textbox-guess").value;
-      if (playerGuess !== '') {
+      if (playerGuess !== '' && playerGuess.includes(' ') == false) {
         document.getElementById('textbox-guess').value = '';
         handleGuess(playerGuess);
       }

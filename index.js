@@ -2,14 +2,18 @@
 //click on image to embiggen to full screen/size
 //aspect ratio handling - if wider then left-righty; if taller then uppy-downy
 //refreshes every midnight utc
-//about section - instructions, midjourney deets
+//about section - instructions, nouns, midjourney deets, skowdle,bisc, todolist, masto contact deets for bugs etc
 //appearance: dark mode/light mode, phones, etc
-//share tweet etc
-//track scores in cookie
+//share tweet etc - picture, number of guesses & hints used
+//track scores in cookie, view averages, add to victory message
 //visitor numbers?
 //payment (kofi/patreon/paypal)
 
 
+// Get date
+//var date = new Date();
+//var skowdleDate = date.getUTCFullYear()+"."+(date.getUTCMonth()+1)+"."+ date.getUTCDate();
+var skowdleDate = new Date().toISOString().slice(0, 10);
 
 // Define the two solution nouns and display the number of characters
 // TODO: should be array really, would make things much tidier later
@@ -22,6 +26,8 @@ $("#solution-noun-2").text('?'.repeat(solutionNoun2.length));
 var noun1Revealed = false;
 var noun2Revealed = false;
 var gameWon = false;
+var guessCount = 0;
+var hintCount = 0;
 
 // Wait for the player to do something
 receiveInput();
@@ -30,7 +36,7 @@ receiveInput();
 function receiveInput() {
 
   // Receive the player guess from the text box if 'Guess' button is clicked, and clear the text box
-  const guessButton= document.getElementById("guess-button");
+  const guessButton = document.getElementById("guess-button");
   guessButton.addEventListener('click', function(){
     if (!gameWon) {
       var playerGuess = document.getElementById("textbox-guess").value;
@@ -49,7 +55,7 @@ function receiveInput() {
   });
 
   // Wait for the 'Hint' button to be clicked
-  const hintButton= document.getElementById("hint-button");
+  const hintButton = document.getElementById("hint-button");
   hintButton.addEventListener('click', function(){
     if (!gameWon) {
       deliverHint();
@@ -86,10 +92,10 @@ function handleGuess(guess) {
 function checkWin(){
 if (noun1Revealed && noun2Revealed) {
   gameWon = true;
-  $("#game-won").text("Yay, you guessed both nouns. You win a biscuit! (biscuit not provided)");
+  $("#game-won").text("Yay, you guessed both nouns. You win a biscuit! (biscuit not provided).");
+  $("#game-stats").text("Results for skowdle-" + skowdleDate + ": " + guessCount + " guesses and " + hintCount + " hints.");
   }
 }
-
 
 // A function that reveals a random letter of an unrevealed noun
 function deliverHint() {
@@ -111,8 +117,9 @@ function deliverHint() {
   if (revealedNoun.charAt(charNo) !== "?") {
     deliverHint(); 
 
-  // Otherwise update the revealed noun with the new character
+  // Otherwise increment the hint counter and update the revealed noun with the new character
   } else {   
+    hintCount = hintCount += 1;
     revealedNoun = revealedNoun.substring(0, charNo) + solutionNoun.charAt(charNo) + revealedNoun.substring(charNo + 1);
     $(spanID).text(revealedNoun);
 
@@ -128,7 +135,6 @@ function deliverHint() {
      }
   }
 }
-
 
 // A function that picks an unrevealed noun
 function pickNoun() {

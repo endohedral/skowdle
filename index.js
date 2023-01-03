@@ -37,6 +37,7 @@ function receiveInput() {
   guessButton.addEventListener('click', function(){
     if (!gameWon) {
       var playerGuess = document.getElementById("textbox-guess").value;
+      // Don't allow empty guesses or multiple words
       if (playerGuess !== '' && playerGuess.includes(' ') == false) {
         document.getElementById('textbox-guess').value = '';
         handleGuess(playerGuess);
@@ -71,12 +72,19 @@ function receiveInput() {
 // A function to handle the player's guess
 function handleGuess(guess) {
   // Convert guess word to all lowercase
-  guess = guess.toLowerCase(); 
+  guess = guess.toLowerCase();
+
+  // Check if it's a repeat guess
+  var previousGuesses = $("#guesses-list").text();
+  if (previousGuesses.includes(" " + guess + " ")) {
+    $("#guesses-list").prepend("<li>-. &nbsp; " + guess + " </li>");
+    return
+  }
   
   // Add the guess to the list of previous guesses
   // TODO: add column for correct/incorrect tick/cross
-  guessCount = $("#guesses-list li").length + 1;
-  $("#guesses-list").prepend("<li>" + guessCount + ". &nbsp;" + guess + "</li>");
+  guessCount += 1;
+  $("#guesses-list").prepend("<li>" + guessCount + ". &nbsp; " + guess + " </li>");
 
   // Check if the player's guess matches either of the solution nouns
   if (guess === solutionNoun1 || guess === solutionNoun2) {
@@ -124,7 +132,7 @@ function deliverHint() {
 
   // Otherwise increment the hint counter and update the revealed noun with the new character
   } else {   
-    hintCount = hintCount += 1;
+    hintCount += 1;
     revealedNoun = revealedNoun.substring(0, charNo) + solutionNoun.charAt(charNo) + revealedNoun.substring(charNo + 1);
     $(spanID).text(revealedNoun);
 
